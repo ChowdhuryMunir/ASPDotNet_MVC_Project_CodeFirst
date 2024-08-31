@@ -1,0 +1,116 @@
+﻿
+@{
+    ViewBag.Title = "Default";
+}
+
+<h2>Employee Allowance</h2>
+<div class="container">
+
+    <div class="master">
+        <h3>Please Fillout The Employee Information</h3>
+        <table class="table table-hover table-responsive table-bordered">
+            <tr>
+                <td>Employee Name</td>
+                <td>
+                    <input type="text" id="employeeName" class="employeeName form-control" />
+                    <span class="error">Please Provide an Employee Name</span>
+                </td>
+
+                <td>Address</td>
+                <td>
+                    <textarea id="address" class="form-control"></textarea>
+                </td>
+
+                <td>Phone Number</td>
+                <td>
+                    <input type="text" id="phoneNo" class="phoneNo form-control" />
+                    <span class="error">Please Provide an Employee Contact Number</span>
+                </td>
+            </tr>
+            <tr>
+                <td>Image</td>
+                <td>
+                    <input type="file" name="ImageFile" id="imageupload" class="form-control" />
+                </td>
+                <td>Payment Date</td>
+                <td>
+                    <input type="date" id="payDate" class="form-control" />
+                    <span class="error">Valid Payment date required(mm-dd-yyyy)</span>
+                </td>
+                <td>If All the Informations Are Correct please click On The CheckBox</td>
+                <td>
+                    <input type="checkbox" id="bool" class="form-control" style="width:20px;height:50px;" />
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="details">
+        <h3>Select The Allowance</h3>
+        <table class="table, table-responsive table-hover table-bordered">
+            <tr>
+                <td>Allowance Category</td>
+                <td>Allowance Name</td>
+                <td>Amount</td>
+                <td></td>
+            </tr>
+            <tr class="mycontainer" id="mainrow">
+
+                <td>
+                    <select id="allowanceCategory" class="pc form-control" onchange="LoadProduct(this)">
+                        <option>Select</option>
+                    </select>
+                    <span class="error">Select AllowanceCategory</span>
+                </td>
+                <td>
+                    <select id="allowanceName" class="allowanceName form-control">
+                        <option>Select</option>
+                    </select>
+                    <span class="error">Select Allowance Name</span>
+                </td>
+                <td>
+                    <input type="text" id="amount" class="amount form-control" />
+                    <span class="error">Please Provide Valid Amount</span>
+                </td>
+                <td>
+                    <input type="button" id="add" value="Add" style="width:80px" class="btn btn-success" />
+                </td>
+            </tr>
+        </table>
+
+        <div id="allowanceItems">
+            @Html.Partial("_PartialView")
+        </div>
+
+        <div style="padding:10px 0; text-align:right;">
+            <input type="submit" id="submit" value="Save Information" class="btn btn-warning" style="padding:10px 20px" />
+        </div>
+
+    </div>
+
+</div>
+
+
+<div>
+
+</div>
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/Site.css" rel="stylesheet" />
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" />
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script src="~/Scripts/MyScript.js"></script>
+
+<style>
+    span.error {
+        display: block;
+        visibility: hidden;
+        color: red;
+        font-size: 90%;
+    }
+
+    tr.error {
+        background-color: brown;
+    }
+</style>
